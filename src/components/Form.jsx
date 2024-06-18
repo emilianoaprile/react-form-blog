@@ -11,37 +11,47 @@ function Form() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // aggiungo il titolo all'array
-    setLista(lista => ([titolo,...lista]));
+    setLista((lista) => [titolo, ...lista]);
     setTitolo("");
   };
 
   console.log(titolo);
-  console.log(lista)
+  console.log(lista);
 
   return (
     <>
-      <div>
-        <h2>Aggiungi un titolo</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Inserisci un titolo.."
-            value={titolo}
-            onChange={handleNewTitle}
-          />
-          <button>Aggiungi</button>
-        </form>
-        <h2>Titoli:</h2>
-        <ul>
-          {lista.map((listItem, index) => (
-            <li key={`title${index}`}>
-              {listItem}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <section className="formSection">
+        <div className="container">
+          <h2>Aggiungi un titolo</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="formWrapper">
+              <input
+                type="text"
+                placeholder="Inserisci un titolo.."
+                value={titolo}
+                onChange={handleNewTitle}
+              />
+              <button className="btn btnAdd">Aggiungi</button>
+            </div>
+          </form>
+          <h2>Titoli:</h2>
+          {/* conditional rendering se ci sono titoli renderizza la lista altrimenti il paragrafo */}
+          {lista.length > 0 ? (
+            <ul className="titleList">
+              {lista.map((listItem, index) => (
+                <li className="listItem" key={`title${index}`}>
+                  {listItem}
+                  <button className="btn btnRemove">Elimina</button>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="listMessage">Non hai ancora inserito nessun titolo</p>
+          )}
+        </div>
+      </section>
     </>
   );
 }
