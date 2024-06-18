@@ -10,13 +10,21 @@ function Form() {
     setTitolo(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // aggiungo il titolo all'array
+    setLista(lista => ([titolo,...lista]));
+    setTitolo("");
+  };
+
   console.log(titolo);
+  console.log(lista)
 
   return (
     <>
       <div>
         <h2>Aggiungi un titolo</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Inserisci un titolo.."
@@ -27,7 +35,11 @@ function Form() {
         </form>
         <h2>Titoli:</h2>
         <ul>
-          <li>Titolo aggiunto</li>
+          {lista.map((listItem, index) => (
+            <li key={`title${index}`}>
+              {listItem}
+            </li>
+          ))}
         </ul>
       </div>
     </>
