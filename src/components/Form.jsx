@@ -16,7 +16,7 @@ function Form() {
     e.preventDefault();
     // quando l'utente clicca su modifica isEditing è true => aggiorno la lista
     if(isEditing) {
-        // mappo la lista e ritorno l'array modificato controllando se index === indexToEdit sostituendo l'elemento vorrete con il nuovo
+        // mappo la lista e ritorno l'array modificato controllando se index === indexToEdit sostituendo l'elemento corrente con il nuovo
         const updatedLista = lista.map((item, index) => index === indexToEdit ? titolo : item);
         setLista(updatedLista);
         setIsEditing(false);
@@ -54,11 +54,12 @@ function Form() {
                 placeholder="Inserisci un titolo.."
                 value={titolo}
                 onChange={handleNewTitle}
+                required
               />
               <button className="btn btnAdd">{isEditing ? "Salva Modifica" : "Aggiungi"}</button>
             </div>
           </form>
-          <h2>Titoli:</h2>
+          <h2>Titoli</h2>
           {/* conditional rendering se ci sono titoli renderizza la lista altrimenti il paragrafo */}
           {lista.length > 0 ? (
             <ul className="titleList">
