@@ -12,13 +12,21 @@ ul, li, ol {
   list-style: none;
 }
 
+body {
+  background-color: black;
+}
+
 .container {
   width: 500px;
   margin: 0 auto;
 }
 
+.formSection {
+  padding: 50px 0;
+}
 .container > h2 {
   text-align: center;
+  color: white;
 }
 .formWrapper {
   display: flex;
@@ -39,7 +47,7 @@ ul, li, ol {
   border: none;
   outline: none;
   border-bottom: 1px solid #ccc;
-  background-color: lightgray;
+  background-color: rgb(232, 232, 232);
   border-radius: 10px;
 }
 
@@ -48,7 +56,7 @@ ul, li, ol {
   border: none;
   outline: none;
   border-radius: 10px;
-  background-color: lightblue;
+  background-color: rgba(129, 255, 97, 0.664);
   cursor: pointer;
 }
 
@@ -79,11 +87,13 @@ ul, li, ol {
 }
 
 .btnRemove {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.664);
   color: white;
 }
 
 .listMessage {
   text-align: center;
   padding: 20px 0;
+  font-weight: bold;
+  color: white;
 }

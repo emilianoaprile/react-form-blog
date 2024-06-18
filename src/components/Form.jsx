@@ -17,6 +17,10 @@ function Form() {
     setTitolo("");
   };
 
+  const removeTitle = (indexToEliminate) => {
+    setLista(lista => lista.filter((_, index) => index !== indexToEliminate));
+  };
+
   console.log(titolo);
   console.log(lista);
 
@@ -43,7 +47,7 @@ function Form() {
               {lista.map((listItem, index) => (
                 <li className="listItem" key={`title${index}`}>
                   {listItem}
-                  <button className="btn btnRemove">Elimina</button>
+                  <button className="btn btnRemove" onClick={() => removeTitle(index)}>Elimina</button>
                 </li>
               ))}
             </ul>
